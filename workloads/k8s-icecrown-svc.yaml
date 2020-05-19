@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+  namespace: icecrown
+spec:
+  ports:
+  - name: 80-80
+    nodePort: 31884
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: nginx
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
